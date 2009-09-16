@@ -5,12 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "quick_queue"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{quick_queue is a mix of Ruby's Queue and drb to produce an extremely simple to use queue system in pure Ruby.}
+    #gem.description = %Q{TODO: longer description of your gem}
     gem.email = "marcin@applicake.com"
     gem.homepage = "http://github.com/marcinbunsch/quick_queue"
     gem.authors = ["Marcin Bunsch"]
-    gem.add_development_dependency "thoughtbot-shoulda"
+    gem.files = FileList['*', '{bin,lib,images,spec}/**/*']
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
