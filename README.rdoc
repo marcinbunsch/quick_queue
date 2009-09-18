@@ -2,6 +2,29 @@
 
 quick_queue is a mix of Ruby's Queue and drb to produce an extremely simple to use queue system in pure Ruby.
 
+=== installation
+
+Simple:
+
+ sudo gem install marcinbunsch-quick_queue
+ 
+=== usage
+
+Simpler:
+
+To use the server, type *qq* in the console. That's it.
+
+To use the client, either use or extend the QuickQueue::Client class:
+
+ require 'quick_queue/client'
+ client = QuickQueue::Client.new
+ client.server_status
+ => "Current queue status: queue is empty"
+ client.push 'item'
+ => 1
+ client.fetch
+ => 'item'
+
 == Note on Patches/Pull Requests
  
 * Fork the project.

@@ -45,8 +45,9 @@ module QuickQueue
         @size = @queue.length
         trap('INT') { exit }
         port = (options[:port] || 7654)
-        puts "quick_queue: server working at #{port}"
-        DRb.start_service("druby://localhost:#{port}", self)
+        host = (options[:host] || 'localhost')
+        puts "quick_queue: server working at #{host}:#{port}"
+        DRb.start_service("druby://#{host}:#{port}", self)
         DRb.thread.join
       end
 

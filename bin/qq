@@ -8,6 +8,7 @@ OptionParser.new do |opts|
   opts.banner = "Usage: qs [options]"
 
   opts.on("-p PORT", "--port PORT", "Specify port (default: 5000)") { |value| @options[:port] = value; }
+  opts.on("-h HOST", "--host HOST", "Specify host (default: localhost)") { |value| @options[:host] = value; }
   opts.on("-f FILE", "--file FILE", "Specify file with data for queue (one item per line)") { |value| @options[:file] = value; }
   opts.on("-q", "quit deamon (if present)") {  }
   opts.on("-d", "--deamon", "Run as a deamon process") { @options[:deamon] = true; }
