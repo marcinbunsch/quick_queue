@@ -5,14 +5,16 @@ module QuickQueue
     def initialize(options = {})
       port = (options[:port] || 7654)
       host = (options[:host] || 'localhost')
+      @worker = File.read(options[:file]) if options[:file]
       DRb.start_service()
       @server = DRbObject.new(nil, "druby://#{host}:#{port}")
       @current_item = nil
     end
-
+    
     def fetch
       @server.pop
     end
+    alias :pop :fetch
 
     def push(item)
       @server.push(item)
@@ -21,6 +23,7 @@ module QuickQueue
     def server_status
       @server.status
     end
+    alias :status :server_status
 
     def loop
       while item = fetch

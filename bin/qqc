@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'quick_queue/console'
+require 'optparse'
+
+@options = {} 
+OptionParser.new do |opts|
+  opts.banner = "Usage: qqc [options]"
+  opts.on("-p PORT", "--port PORT", "Specify port (default: 5000)") { |value| @options[:port] = value; }
+  opts.on("-h HOST", "--host HOST", "Specify host (default: localhost)") { |value| @options[:host] = value; }
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end.parse!
+
+QuickQueue::Console.new(@options).loop
